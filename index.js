@@ -21,15 +21,23 @@ const modelMatrixLocation = gl.getUniformLocation(program, 'modelMatrix')
 // #️⃣ Definimos la info de la geometría que vamos a dibujar
 
 const vertexPositions = [
-  -0.5, -0.5, // 0 👈 indice de cada posición
-  0.5, -0.5,  // 1
-  0.5, 0.5,   // 2
-  -0.5, 0.5   // 3
+  -0.3, -0.5, // 0
+  -0.1, -0.5, // 1
+  -0.1, -0.1, // 2
+  0.3, -0.1,  // 3
+  0.3, 0.1,   // 4
+  -0.1, 0.1,  // 5
+  -0.1, 0.3,  // 6
+  0.3, 0.3,   // 7
+  0.3, 0.5,   // 8
+  -0.1, 0.5,  // 9
+  -0.3, 0.5,  // 10
 ]
 
 const indices = [
-  0, 1, 3,
-  3, 1, 2
+  0, 9, 10, 0, 1, 9,
+  2, 3, 4, 2, 4, 5,
+  6, 7, 8, 6, 8, 9
 ]
 
 // #️⃣ Guardamos la info de la geometría en VBOs e IBO
