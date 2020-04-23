@@ -1,21 +1,14 @@
-# Manejo de Indices
+# Transformaciones
 
 <p align="center">
-  <img src="docs/previews.png"/>
+  <img src="docs/master.png" height="500"/>
 </p>
-
-### Branches 🌳
-
-- `sin indices`
-- `con indices`
-- `gradiente`
-- `wireframe`
 
 ### Referencias 📚
 
-- [Index Buffers in OpenGL](https://www.youtube.com/watch?v=MXNMC1YAxVQ)
-- [WebGL 2 Fundamentals - Indexed Vertices](https://webgl2fundamentals.org/webgl/lessons/webgl-indexed-vertices.html)
-- [WebGL Programming Guide](https://www.oreilly.com/library/view/webgl-programming-guide/9780133364903/) `Capitulo 7 - Hello Cube`
+- [WebGL 2 Fundamentals - 2D translation, rotation, scale, matrix math](https://webgl2fundamentals.org)
+- [WebGL Programming Guide](https://www.oreilly.com/library/view/webgl-programming-guide/9780133364903/) `Capitulo 3 - Moving, Rotating, and Scaling`
+
 
 ### Uso 💻
 
