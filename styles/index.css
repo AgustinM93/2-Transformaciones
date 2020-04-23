@@ -16,3 +16,21 @@ body {
   border-radius: 4px;
   opacity: 0.5;
 }
+
+#controls {
+  width: 400px;
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: auto 1fr 60px;
+  column-gap: 20px;
+  row-gap: 10px;
+  align-items: center;
+}
+
+#controls .value {
+  text-align: right;
+  background-color: rgb(230, 230, 230);
+  border-radius: 4px;
+  padding: 4px 6px;
+}
+
