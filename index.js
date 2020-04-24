@@ -82,9 +82,10 @@ gl.bindVertexArray(vertexArray)
  * Ahora, en vez de directamente llamar a las funciones gl.clear y gl.draw para limpiar/dibujar
  * la escena, lo vamos a hacer dentro de la función render(). Esta función va a ser la encargada de
  * actualizar el valor del uniform correspondiente a la modelMatrix, limpiar el canvas y dibujar
- * nuestra geometría. Observen que después de definirla la estamos llamando una vez, para que ni
+ * nuestra geometría. Observen que después de definirla, la estamos llamando una vez, para que ni
  * bien abrimos la página se dibuje el primer "frame" de nuestra escena. Después, los sliders van a
- * ser los encargados de actualizar la escena ante cada cambio an alguno de sus valores.
+ * ser los encargados de volver a llamarla y actualizar la escena ante cada cambio an alguno de sus
+ * valores.
  */
 
 function render() {
@@ -117,7 +118,7 @@ const translationSlider = document.getElementById('translation-slider')
 const scaleSlider = document.getElementById('scale-slider')
 const rotationSlider = document.getElementById('rotation-slider')
 
-// Al texto que los acompaña (que indica el valor actual de cada transformación)
+// Obtenemos referencia al texto que los acompaña (que indica el valor actual de cada transformación)
 const translationText = document.getElementById('translation-value')
 const scaleText = document.getElementById('scale-value')
 const rotationText = document.getElementById('rotation-value')
