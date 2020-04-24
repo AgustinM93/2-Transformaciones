@@ -91,7 +91,7 @@ gl.bindVertexArray(vertexArray)
 function render() {
   // Actualizamos matrices de traslación, escalado y rotación
   mat4.fromTranslation(translationMatrix, [translation, 0, 0])
-  mat4.fromScaling(scaleMatrix, [scale, scale, scale]);
+  mat4.fromScaling(scaleMatrix, [scale, scale, 1]);
   mat4.fromRotation(rotationMatrix, glMatrix.toRadian(rotation), [0, 0, 1])
 
   // "Reseteamos" la modelMatrix y le aplicamos las matrices
