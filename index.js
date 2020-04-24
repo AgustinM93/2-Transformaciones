@@ -62,6 +62,7 @@ const rotationMatrix = mat4.create()
 const modelMatrix = mat4.create()
 
 let translation = 0
+let translationY = 0
 let scale = 1
 let rotation = 0
 
@@ -90,7 +91,7 @@ gl.bindVertexArray(vertexArray)
 
 function render() {
   // Actualizamos matrices de traslación, escalado y rotación
-  mat4.fromTranslation(translationMatrix, [translation,0, 0])
+  mat4.fromTranslation(translationMatrix, [translation,translationY, 0])
   mat4.fromScaling(scaleMatrix, [scale, scale, 1]);
   mat4.fromRotation(rotationMatrix, glMatrix.toRadian(rotation), [0, 0, 1])
 
@@ -115,11 +116,13 @@ render()
 
 // Obtenemos referencia a los sliders
 const translationSlider = document.getElementById('translation-slider')
+const translationSlider1 = document.getElementById('translation-slider1')
 const scaleSlider = document.getElementById('scale-slider')
 const rotationSlider = document.getElementById('rotation-slider')
 
 // Obtenemos referencia al texto que los acompaña (que indica el valor actual de cada transformación)
 const translationText = document.getElementById('translation-value')
+const translationText1 = document.getElementById('translation-value1')
 const scaleText = document.getElementById('scale-value')
 const rotationText = document.getElementById('rotation-value')
 
@@ -134,6 +137,12 @@ translationSlider.addEventListener('input', (event) => {
   updateText(translationText, translation)
   render()
 })
+translationSlider1.addEventListener('input', (event) => {
+  translationY = event.target.valueAsNumber
+  updateText(translationText1, translationY)
+  render()
+})
+
 translationSlider
 scaleSlider.addEventListener('input', (event) => {
   scale = event.target.valueAsNumber
@@ -148,11 +157,13 @@ rotationSlider.addEventListener('input', (event) => {
 
 // Seteamos la posición inicial de los sliders a partir de los valores por defecto que definimos
 translationSlider.value = translation
+translationSlider1.value = translationY
 scaleSlider.value = scale
 rotationSlider.value = rotation
 
 // Lo mismo para el texto que los acompaña
 updateText(translationText, translation)
+updateText(translationText1, translationY)
 updateText(scaleText, scale)
 updateText(rotationText, rotation)
 
