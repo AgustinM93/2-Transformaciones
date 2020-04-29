@@ -9,6 +9,9 @@ const gl = getWebGL2Context(canvas)
 
 gl.clearColor(0, 0, 0, 1)
 
+// Habilitamos el test de profundidad
+gl.enable(gl.DEPTH_TEST)
+
 // #️⃣ Creamos los shaders, el programa que vamos a usar, y guardamos info de sus inputs (atributos y uniforms)
 
 const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSourceCode)
@@ -21,23 +24,65 @@ const modelMatrixLocation = gl.getUniformLocation(program, 'modelMatrix')
 // #️⃣ Definimos la info de la geometría que vamos a dibujar
 
 const vertexPositions = [
-  -0.3, -0.5, // 0
-  -0.1, -0.5, // 1
-  -0.1, -0.1, // 2
-  0.3, -0.1,  // 3
-  0.3, 0.1,   // 4
-  -0.1, 0.1,  // 5
-  -0.1, 0.3,  // 6
-  0.3, 0.3,   // 7
-  0.3, 0.5,   // 8
-  -0.1, 0.5,  // 9
-  -0.3, 0.5,  // 10
+  -0.14,-1.702,5.936,
+  -0.14,-1.489,6.031,
+  0,-2.115,6.089,
+  0.14,-1.702,5.936,
+  0,-1.794,6.45,
+  -0.14,0.926,0.609,
+  -0.14,0.713,0.514,
+  0,0.482,3.66,
+  0.14,-1.489,6.031,
+  0,-2.025,6.347,
+  -0.14,0.661,3.74,
+  0,1.033,0.103,
+  -0.14,1.858,4.274,
+  0.14,1.858,4.274,
+  0.14,0.713,0.514,
+  0,0.55,0.105,
+  0,2.115,4.387,
+  0,0.802,0,
+  0.14,0.661,3.74,
+  0.14,0.926,0.609
 ]
 
 const indices = [
-  0, 9, 10, 0, 1, 9,
-  2, 3, 4, 2, 4, 5,
-  6, 7, 8, 6, 8, 9
+  12 	,10 ,1,
+2 ,	3 ,	9,
+3, 	18, 	8,
+12, 	5, 	10,
+6 ,	10, 	5,
+0, 	1, 	10,
+14, 	15, 	17,
+7, 	18, 	3,
+15, 	6, 	17,
+9, 	4, 	0,
+9, 	0, 	2,
+15, 	7, 	6,
+9, 	3, 	4,
+8, 	13, 	16,
+7, 	3, 	2,
+8, 	4, 	3,
+10, 	6, 	7,
+5, 	12, 	16,
+11, 	19, 	14,
+14, 	7, 	15,
+0, 	10, 	7,
+13, 	8, 	18,
+19, 	13, 	18,
+16, 	1, 	4,
+4, 	8, 	16,
+1, 	16, 	12,
+18, 	7, 	14,
+11, 	17, 	6,
+11, 	5, 	16,
+16, 	13, 	19,
+0, 	7, 	2,
+11, 	6, 	5,
+1, 	0, 	4,
+16, 	19, 	11,
+17, 	11, 	14,
+18, 	14, 	19
 ]
 
 // #️⃣ Guardamos la info de la geometría en VBOs e IBO
@@ -105,7 +150,7 @@ function render() {
   gl.uniformMatrix4fv(modelMatrixLocation, false, modelMatrix)
 
   // Limpiamos el canvas y dibujamos
-  gl.clear(gl.COLOR_BUFFER_BIT)
+  gl.clear(gl.COLOR_BUFFER_BIT| gl.DEPTH_BUFFER_BIT)
   gl.drawElements(gl.TRIANGLES, indices.length, gl.UNSIGNED_SHORT, 0)
 }
 
